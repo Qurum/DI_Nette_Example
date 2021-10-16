@@ -1,0 +1,12 @@
+{
+  "require": {
+    "nette/di": "*",
+    "monolog/monolog": "*"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "DI_Example\\": "src"
+    }
+  }
+}
