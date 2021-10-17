@@ -4,21 +4,12 @@ parameters:
         path: 'logs\log.txt'
     ttl: 3600
 
-
 services:
     application: DI_Example\Application
     logger: Monolog\Logger(%log.channel%)
     logger_stream: Monolog\Handler\StreamHandler(%log.path%, @logger::DEBUG)
-    -
-        factory: DI_Example\AuthService
-        setup:
-            - setTokenTtl(%ttl%)
-
-    -
-        factory: DI_Example\PhotoService
-        setup:
-            - setClient(@DI_Example\Sqlite3Client)
-
+    - DI_Example\AuthService(%ttl%)
+    - DI_Example\PhotoService(@DI_Example\Sqlite3Client)
 
 decorator:
     # внедрить во все объекты типа BaseService
