@@ -4,11 +4,9 @@ namespace DI_Example;
 
 class PhotoService extends BaseService
 {
-    protected $client;
-
-    public function setClient($client)
+    public function __construct(protected $client)
     {
-        $this->client = $client;
+        ;
     }
 
     public function uploadPhoto($user, $path)

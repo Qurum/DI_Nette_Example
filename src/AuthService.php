@@ -4,11 +4,9 @@ namespace DI_Example;
 
 class AuthService extends BaseService
 {
-    protected $token_ttl;
-
-    public function setTokenTtl($token_ttl)
+    public function __construct(protected $token_ttl)
     {
-        $this->token_ttl = $token_ttl;
+        ;
     }
 
     public function authenticate($user, $password)
